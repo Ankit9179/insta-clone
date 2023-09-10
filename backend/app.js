@@ -1,13 +1,28 @@
-// basic server with node
-const http = require("http"); // import http module
+// basic server with express
+const express = require("express"); //import
+const app = express(); //server object
+const data = require("./data.js");
+const PORT = 5000;
 
-// server
-const server = http.createServer((req, res) => {
-  console.log("server created");
-  res.end("hello world");
+// routes
+app.get("/", (req, res) => {
+  res.json(data);
 });
 
-//listen server
-server.listen(5000, "localhost", () => {
-  console.log("server is runing on 5000");
+app.listen(PORT, () => {
+  console.log("aap is listening on port " + PORT);
 });
+
+// // basic server with node
+// const http = require("http"); // import http module
+
+// // server
+// const server = http.createServer((req, res) => {
+//   console.log("server created");
+//   res.end("hello world");
+// });
+
+// //listen server
+// server.listen(5000, "localhost", () => {
+//   console.log("server is runing on 5000");
+// });
