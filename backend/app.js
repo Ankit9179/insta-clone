@@ -2,7 +2,11 @@
 const express = require("express"); //import
 const app = express(); //server object
 const data = require("./data.js");
+const cors = require("cors");
 const PORT = 5000;
+
+//middleware
+app.use(cors());
 
 // routes
 app.get("/", (req, res) => {
