@@ -1,1 +1,1 @@
-# insta-clone
+# insta-clone app
