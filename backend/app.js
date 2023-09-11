@@ -1,16 +1,25 @@
 // for server
 const express = require("express"); //import
+const cors = require("cors");
 const app = express(); //server object
 const dotenv = require("dotenv"); //import
 dotenv.config();
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
+const userRoutes = require("./routes/userRoutes.js");
 const connectDb = require("./config/connectDb.js");
 // coll mongodb fonc
 connectDb();
 
+app.use(cors()); // you can send request url fron port to backend port
+app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+
+// routes
+app.use("/api/v1/insta-clone/user", userRoutes);
+
 // listen server
 app.listen(port, () => {
-  console.log("aap is listening on port " + port);
+  console.log(`aap is listening on port ${port}`);
 });
 
 //
