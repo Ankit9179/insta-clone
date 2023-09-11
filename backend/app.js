@@ -1,21 +1,51 @@
-// basic server with express
+// for server
 const express = require("express"); //import
 const app = express(); //server object
-const data = require("./data.js");
-const cors = require("cors");
-const PORT = 5000;
+const dotenv = require("dotenv"); //import
+dotenv.config();
+const port = process.env.PORT;
+const mongoconnection = require("./mongoconnection.js");
 
-//middleware
-app.use(cors());
+// coll mongodb fonc
+mongoconnection();
 
-// routes
-app.get("/", (req, res) => {
-  res.json(data);
+// listen server
+app.listen(port, () => {
+  console.log("aap is listening on port " + port);
 });
 
-app.listen(PORT, () => {
-  console.log("aap is listening on port " + PORT);
-});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+// // basic server with express
+// const express = require("express"); //import
+// const app = express(); //server object
+// const data = require("./data.js");
+// const cors = require("cors");
+// const PORT = 5000;
+
+// //middleware
+// app.use(cors());
+
+// // routes
+// app.get("/", (req, res) => {
+//   res.json(data);
+// });
+
+// app.listen(PORT, () => {
+//   console.log("aap is listening on port " + PORT);
+// });
 
 // // basic server with node
 // const http = require("http"); // import http module
