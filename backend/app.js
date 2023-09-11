@@ -4,10 +4,9 @@ const app = express(); //server object
 const dotenv = require("dotenv"); //import
 dotenv.config();
 const port = process.env.PORT;
-const mongoconnection = require("./mongoconnection.js");
-
+const connectDb = require("./config/connectDb.js");
 // coll mongodb fonc
-mongoconnection();
+connectDb();
 
 // listen server
 app.listen(port, () => {
