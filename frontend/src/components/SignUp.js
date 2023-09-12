@@ -24,8 +24,11 @@ const SignUp = () => {
       if (serverResponse.success) {
         toast.success(serverResponse.message);
       }
+      if (!serverResponse.success) {
+        toast.success(serverResponse.message);
+      }
     } catch (error) {
-      toast.error("server error");
+      toast.error(error.response.data.message);
     }
   };
   return (
