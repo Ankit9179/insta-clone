@@ -4,6 +4,8 @@ import { Routes, Route } from "react-router-dom";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
 import Profile from "./components/Profile";
+import { ToastContainer } from "react-toastify";
+
 function App() {
   return (
     <div>
@@ -14,6 +16,7 @@ function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/profile" element={<Profile />} />
       </Routes>
+      <ToastContainer theme="dark" />
     </div>
   );
 }

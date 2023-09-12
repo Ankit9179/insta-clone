@@ -1,20 +1,31 @@
 import React, { useState } from "react";
 import axios from "axios";
 import logo from "../images/logo.png";
-import { Link } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   // get all input feild value
   const [name, setName] = useState("");
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const regexPass =
+    /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$!%^&*?])[A-Za-z\d@#$!%^&*?]{8,}$/;
   // send data to backend
   const sendData = async (e) => {
     e.preventDefault();
+
     try {
+      //checking email and passwoud
+      if (!regexPass.test(password)) {
+        toast.error(
+          "password must be at least 8 characters with ?=.*[@#$%^&-+=()aA123"
+        );
+        return;
+      }
       const user = { name, userName, email, password };
       const res = await axios.post(
         "http://localhost:5000/api/v1/insta-clone/user/sign-up",
@@ -23,6 +34,7 @@ const SignUp = () => {
       const serverResponse = res.data;
       if (serverResponse.success) {
         toast.success(serverResponse.message);
+        navigate("/sign-in");
       }
       if (!serverResponse.success) {
         toast.success(serverResponse.message);
@@ -99,7 +111,6 @@ const SignUp = () => {
           </Link>
         </div>
       </div>
-      <ToastContainer theme="dark" />
     </div>
   );
 };
