@@ -41,8 +41,7 @@ const userSignUpController = async (req, res) => {
     console.log("user created");
     return res.status(201).send({
       success: true,
-      message: "user created",
-      user,
+      message: "user created successfully",
     });
   } catch (error) {
     console.log(error);
