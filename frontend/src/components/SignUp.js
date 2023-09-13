@@ -83,7 +83,7 @@ const SignUp = () => {
             <input
               className="border-2 p-2 rounded-sm outline-none box-border"
               type="password"
-              name=""
+              name="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="password "
