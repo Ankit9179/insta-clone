@@ -59,7 +59,6 @@ const SignUp = () => {
             <input
               className="border-2 p-2 rounded-sm outline-none box-border"
               type="text"
-              required
               name="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
@@ -68,7 +67,6 @@ const SignUp = () => {
             <input
               className="border-2 p-2 rounded-sm outline-none box-border"
               type="text"
-              required
               name="username"
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
@@ -77,7 +75,6 @@ const SignUp = () => {
             <input
               className="border-2 p-2 rounded-sm outline-none box-border"
               type="email"
-              required
               name="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -86,7 +83,6 @@ const SignUp = () => {
             <input
               className="border-2 p-2 rounded-sm outline-none box-border"
               type="password"
-              required
               name=""
               value={password}
               onChange={(e) => setPassword(e.target.value)}
