@@ -24,3 +24,17 @@ the code for for email validation with regex from frontend before hittting fetch
                 toast.error(
                 "password must be at least 8 characters with ?=.*[@#$%^&-+=()aA123"
                 );
+
+# preview an image code
+
+            <input type="file" accept="image/*" onchange="loadFile(event)">
+            <img id="output"/>
+            <script>
+            var loadFile = function(event) {
+                var output = document.getElementById('output');
+                output.src = URL.createObjectURL(event.target.files[0]);
+                output.onload = function() {
+                URL.revokeObjectURL(output.src) // free memory
+                }
+            };
+            </script>
