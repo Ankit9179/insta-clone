@@ -25,6 +25,11 @@ const Navbar = () => {
               Profile
             </li>
           </Link>
+          <Link to={"/create-post"}>
+            <li className=" md:text-2xl cursor-pointer text-gray-400">
+              CreatePost
+            </li>
+          </Link>
         </ul>
       </div>
     </>

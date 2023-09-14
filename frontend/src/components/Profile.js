@@ -18,7 +18,7 @@ const Profile = () => {
           </div>
         </div>
         <hr className="w-[60%] mx-auto opacity-100 my-7" />
-        <div className="gallery  flex justify-center flex-wrap w-[100%] mx-auto">
+        <div className="gallery  flex justify-center flex-wrap w-[70%] mx-auto">
           <img className="object-contain w-[250px] m-5 " src="https://kidmatterscounseling.com/wp-content/uploads/2017/12/Lindsey-Holsten-500x500-Profile-Picture-compressed.jpg" alt="div" />
           <img className="object-contain w-[250px] m-5 " src="https://kidmatterscounseling.com/wp-content/uploads/2017/12/Lindsey-Holsten-500x500-Profile-Picture-compressed.jpg" alt="div" />
           <img className="object-contain w-[250px] m-5 " src="https://kidmatterscounseling.com/wp-content/uploads/2017/12/Lindsey-Holsten-500x500-Profile-Picture-compressed.jpg" alt="div" />
