@@ -1,5 +1,7 @@
 const userModel = require("../models/userModel.js");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken"); //fro create jwt token
+const secretKey = process.env.JWT_SECRET; //fro create jwt token
 
 // sign up
 const userSignUpController = async (req, res) => {
@@ -76,10 +78,14 @@ const userSignInController = async (req, res) => {
       });
     }
 
-    return res.status(200).send({
-      message: "login successfully",
-      success: true,
-    });
+    // return res.status(200).send({
+    //   message: "login successfully",
+    //   success: true,
+    // });
+
+    //create jwt token
+    const token = jwt.sign({ _id: user.id }, secretKey);
+    console.log(token);
   } catch (error) {
     console.log(error);
   }

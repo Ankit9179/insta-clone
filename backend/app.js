@@ -15,7 +15,10 @@ app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
 
 // routes
+//for users
 app.use("/api/v1/insta-clone/user", userRoutes);
+//for post
+app.use("/api/v1/insta-clone/post", userRoutes);
 
 // listen server
 app.listen(port, () => {
