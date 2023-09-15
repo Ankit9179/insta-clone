@@ -8,7 +8,7 @@ in sign up conroller
 
       const hashedpassword = await bcrypt.hash(password, 12);
 
-# email validation with regex
+# pasword validation with regex
 
 the code for for email validation with regex from frontend before hittting fetch method
 
@@ -38,3 +38,39 @@ the code for for email validation with regex from frontend before hittting fetch
                 }
             };
             </script>
+
+# user verify with jwt token
+
+this is code of user verify
+
+            const jwt = require("jsonwebtoken");
+        const mongoose = require("mongoose");
+        const userModel = require("../models/userModel"); //for getting user _id
+        const secretKey = process.env.JWT_SECRET;
+
+        module.exports = (req, res, next) => {
+        const { authorization } = req.headers;
+        if (!authorization) {
+            return res
+            .status(401)
+            .send({ success: false, message: "you must login first" });
+        }
+        //get token
+        const token = authorization.replace("Bearer ", ""); //u'll get jwt token
+        //varify token
+        jwt.verify(token, secretKey, async (err, payload) => {
+            if (err) {
+            return res
+                .status(401)
+                .send({ success: false, message: "you must login first" });
+            }
+            const { _id } = payload; //get user _id information from token
+            const verifyedUser = await userModel.findById(_id); // verify _id from mongoo
+            if (!verifyedUser) {
+            return res
+                .status(401)
+                .send({ success: false, message: "you must login first" });
+            }
+            next();
+        });
+        };
