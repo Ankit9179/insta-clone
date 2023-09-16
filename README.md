@@ -74,3 +74,7 @@ this is code of user verify
             next();
         });
         };
+
+# post api
+
+some code of post api
