@@ -1,5 +1,4 @@
 const jwt = require("jsonwebtoken");
-const mongoose = require("mongoose");
 const userModel = require("../models/userModel"); //for getting user _id
 const secretKey = process.env.JWT_SECRET;
 
@@ -26,6 +25,8 @@ module.exports = (req, res, next) => {
         .status(401)
         .send({ success: false, message: "you must login first" });
     }
+    // console.log(verifyedUser);
+    req.userData = verifyedUser; //add verify user Data in frontend req as a variable req.userDta
     next();
   });
 };

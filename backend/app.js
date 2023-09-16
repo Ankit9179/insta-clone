@@ -6,6 +6,7 @@ const dotenv = require("dotenv"); //import
 dotenv.config();
 const port = process.env.PORT || 5000;
 const userRoutes = require("./routes/userRoutes.js");
+const postRoutes = require("./routes/postRoutes.js");
 const connectDb = require("./config/connectDb.js");
 // coll mongodb fonc
 connectDb();
@@ -18,7 +19,7 @@ app.use(express.json());
 //for users
 app.use("/api/v1/insta-clone/user", userRoutes);
 //for post
-app.use("/api/v1/insta-clone/post", userRoutes);
+app.use("/api/v1/insta-clone/post", postRoutes);
 
 // listen server
 app.listen(port, () => {
