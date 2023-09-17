@@ -2,23 +2,28 @@ const postModel = require("../models/postModel");
 
 //create post
 const createPostController = (req, res) => {
-  const { title, body } = req.body;
-  if (!title || !body) {
+  const { url, body } = req.body;
+  // console.log(url, body);
+  if (!url || !body) {
     return res
       .status(401)
-      .send({ success: false, message: "please fill the all feilds" });
+      .send({ success: false, message: "please fill the all feildssss" });
   }
   console.log(req.userData); //user information from req wich is comming throug the requireLogin middleware
-  //create a post
+  //create a new post
   const post = new postModel({
-    title,
+    url,
     body,
-    postedBy: req.userData,
+    postedBy: req.userData, //user's  _id
   });
   post
     .save()
     .then((result) => {
-      return res.json({ post: result });
+      return res.status(201).send({
+        success: true,
+        message: "post has created successfully",
+        result,
+      });
     })
     .catch((err) => console.log(err));
 };

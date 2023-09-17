@@ -23,6 +23,8 @@ const SignIn = () => {
       }
       if (resData.success) {
         toast.success(resData.message);
+        console.log(resData.token);
+        localStorage.setItem("jwt", resData.token);
         navigate("/");
       }
     } catch (error) {

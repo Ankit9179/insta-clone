@@ -3,17 +3,13 @@ const { ObjectId } = mongoose.Schema.Types; //get user id from db
 
 const postSchema = new mongoose.Schema(
   {
-    title: {
-      type: String,
-      required: true,
-    },
     body: {
       type: String,
       required: true,
     },
-    photo: {
+    url: {
       type: String,
-      default: "No photo",
+      required: true,
     },
     postedBy: {
       type: ObjectId, // id

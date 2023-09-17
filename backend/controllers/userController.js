@@ -77,15 +77,14 @@ const userSignInController = async (req, res) => {
         success: false,
       });
     }
-
-    // return res.status(200).send({
-    //   message: "login successfully",
-    //   success: true,
-    // });
-
     //create jwt token
     const token = jwt.sign({ _id: user.id }, secretKey);
-    console.log(token);
+    // console.log(token);
+    return res.status(200).send({
+      message: "login successfully",
+      success: true,
+      token,
+    });
   } catch (error) {
     console.log(error);
   }
