@@ -28,4 +28,13 @@ const createPostController = (req, res) => {
     .catch((err) => console.log(err));
 };
 
-module.exports = { createPostController };
+//get all post
+const getAllPost = async (req, res) => {
+  postModel
+    .find()
+    .populate("postedBy", "_id name")
+    .then((posts) => res.json(posts))
+    .catch((err) => console.log(err));
+};
+
+module.exports = { createPostController, getAllPost };
